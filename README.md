@@ -44,7 +44,7 @@ imdb-analysis-recommender/
 **1. Clonar el repositorio**
 
 ```bash
-git clone https://github.com/<tu-usuario>/imdb-analysis-recommender.git
+git clone https://github.com/joeldd14/imdb-analysis-recommender.git
 cd imdb-analysis-recommender
 ```
 
