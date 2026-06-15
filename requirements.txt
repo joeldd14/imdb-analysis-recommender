@@ -1,0 +1,25 @@
+# Dependencias del proyecto
+
+# Flujo recomendado: instala con `pip install -r requirements.txt` y, una vez tengas el entorno funcionando, "congela" las versiones exactas con:
+#  pip freeze > requierements.txt
+# Esos fija las versiones intaladas y hace el proyecto reproducible en el futuro.
+
+# --- Núcleo: datos y análisis (Fases 1 y 2) ---
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+# --- Entorno de notebooks ---
+jupyter
+
+# --- Interpretabilidad ---
+shap
+
+# --- Descarga del dataset (CLI de Kaggle) ---
+kaggle
+
+# Fases posteriores (iremos añadiendo según avance el proyecto)
+# gradio                (app de Gradio - Fase 4)
+# sentence-transformers (Mejora NLP: embeddings de sinopsis (arrastra PyTorch, pesado))

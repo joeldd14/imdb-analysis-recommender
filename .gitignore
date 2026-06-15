@@ -1,0 +1,35 @@
+# --- Datos del proyecto ---
+# El dataset NO se versiona (licencia + tamaño). Se descarga con la CLI de Kaggle.
+data/
+
+# --- Credenciales y secretos ---
+# Kaggle API token 
+kaggle.json
+.env
+
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Modelos entrenados (opcional) --- (Añadiremos en la fase 4 para la app de Hugging Face)
+# *.pkl
+# *.joblib
+
+# --- Editores / IDE ---
+.vscode/
+.idea/
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
