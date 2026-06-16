@@ -1,6 +1,6 @@
 # IMDb Analysis & Recommender
 
-> Herramienta de análisis y recomendación de cine y series construida sobre el dataset *IMDb Top 10.000 Movies & TV Series*. Combina un módulo que **predice y explica** la nota de IMDb de un título con un módulo que **recomienda** títulos similares.
+> Herramienta de análisis y recomendación de cine y series construida sobre el dataset _IMDb Top 10.000 Movies & TV Series_. Combina un módulo que **predice y explica** la nota de IMDb de un título con un módulo que **recomienda** títulos similares.
 
 **Estado:** En construcción — Fase 0 (definición y preparación). Consulta la [hoja de ruta](#hoja-de-ruta) para ver el avance.
 
@@ -19,9 +19,10 @@ Este proyecto explora un mismo conjunto de datos de IMDb desde dos ángulos comp
 ## Dataset
 
 - **Fuente:** [IMDb Top 10,000 Movies & TV Series — Kaggle](https://www.kaggle.com/datasets/abbas829/imdb-top-10000-movies-and-tv-series-dataset)
+- **Licencia del dataset:** CC BY-SA 4.0 (reutilización permitida con atribución; ver la ficha de Kaggle).
 - **Tamaño aproximado:** ~10.000 títulos mejor valorados, con géneros anidados, años y más de 3 millones de votos.
 
-> **Los datos no se incluyen en este repositorio.** La carpeta `data/` está ignorada por git para no redistribuir el dataset (respetando su licencia en Kaggle) y mantener el repo ligero. Sigue los pasos de [Instalación y reproducción](#instalación-y-reproducción) para descargarlos.
+> **Los datos no se incluyen en este repositorio.** La carpeta `data/` está ignorada por git para mantener el repo ligero y reproducible; los datos se obtienen del enlace original. Sigue los pasos de [Instalación y reproducción](#instalación-y-reproducción) para descargarlos.
 
 ## Estructura del repositorio
 
@@ -68,11 +69,22 @@ pip install -r requirements.txt
 
 **4. Configurar las credenciales de Kaggle**
 
-- En [kaggle.com](https://www.kaggle.com/) → *Settings* → *API* → **Create New Token**.
-  Esto descarga un archivo `kaggle.json` (es una credencial: **no debe subirse nunca al repositorio**).
-- Coloca el archivo en:
-  - **Windows:** `C:\Users\<usuario>\.kaggle\kaggle.json`
-  - **macOS / Linux:** `~/.kaggle/kaggle.json` (y `chmod 600 ~/.kaggle/kaggle.json`)
+Kaggle usa un token de API que se muestra **una sola vez**. En [kaggle.com](https://www.kaggle.com/) → _Settings_ → sección _API_ → **Generate New Token**, y copia el token (`KGAT_...`). Es una credencial: **no debe subirse nunca al repositorio**.
+
+Guárdalo en el archivo que la CLI lee automáticamente:
+
+- **Windows (PowerShell):**
+
+```powershell
+  New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.kaggle | Out-Null
+  Set-Content -Path "$env:USERPROFILE\.kaggle\access_token" -Value "TU_TOKEN"
+```
+
+- **macOS / Linux:**
+
+```bash
+  mkdir -p ~/.kaggle && echo "TU_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+```
 
 **5. Descargar el dataset**
 
@@ -84,7 +96,7 @@ El CSV quedará dentro de `data/`, listo para los notebooks.
 
 ## Uso
 
-*Próximamente.* Cuando la aplicación esté lista (Fase 4), aquí se documentará cómo lanzarla
+_Próximamente._ Cuando la aplicación esté lista (Fase 4), aquí se documentará cómo lanzarla
 en local y se enlazará la demo pública en Hugging Face Spaces.
 
 ## Stack
@@ -97,7 +109,7 @@ en local y se enlazará la demo pública en Hugging Face Spaces.
 
 ## Hoja de ruta
 
-- [ ] **Fase 0 — Definir y preparar:** repositorio, README y descarga del dataset *(en curso)*
+- [ ] **Fase 0 — Definir y preparar:** repositorio, README y descarga del dataset _(en curso)_
 - [ ] **Fase 1 — EDA y limpieza:** cargar, entender variables, desanidar géneros, elegir features
 - [ ] **Fase 2 — Módulo A (nota):** baseline → modelo que lo supere → evaluación → interpretabilidad → títulos infra/sobrevalorados
 - [ ] **Fase 3 — Módulo B (recomendador):** similitud sobre las features para devolver los N títulos más parecidos
