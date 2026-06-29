@@ -2,7 +2,7 @@
 
 > Herramienta de análisis y recomendación de cine y series construida sobre el dataset _IMDb Top 10.000 Movies & TV Series_. Combina un módulo que **predice y explica** la nota de IMDb de un título con un módulo que **recomienda** títulos similares.
 
-**Estado:** En construcción — Fase 0 (definición y preparación). Consulta la [hoja de ruta](#hoja-de-ruta) para ver el avance.
+**Estado:** En construcción — Fase 1 (EDA y limpieza). Consulta la [hoja de ruta](#hoja-de-ruta) para ver el avance.
 
 ---
 
@@ -10,7 +10,7 @@
 
 Este proyecto explora un mismo conjunto de datos de IMDb desde dos ángulos complementarios, reutilizando la misma limpieza y las mismas variables en ambos:
 
-- **Módulo A — Valoración.** A partir de las características de un título (género, año, duración, votos, etc.) se entrena un modelo de aprendizaje supervisado para **predecir** su nota de IMDb y, sobre todo, **explicar** qué variables pesan en esa predicción (interpretabilidad). Como subproducto, los errores del modelo permiten señalar títulos potencialmente **infravalorados** y **sobrevalorados**.
+- **Módulo A — Valoración.** A partir de las características de un título (género, año, votos...) se entrena un modelo de aprendizaje supervisado para **predecir** su nota de IMDb y, sobre todo, **explicar** qué variables pesan en esa predicción (interpretabilidad). Como subproducto, los errores del modelo permiten señalar títulos potencialmente **infravalorados** y **sobrevalorados**.
 
 - **Módulo B — Recomendador.** Dado un título, se buscan los más **parecidos** mediante similitud no supervisada sobre esas mismas variables. Es el caso de uso clásico de los sistemas de recomendación: "si te gustó esto, quizá te guste esto otro".
 
@@ -20,7 +20,7 @@ Este proyecto explora un mismo conjunto de datos de IMDb desde dos ángulos comp
 
 - **Fuente:** [IMDb Top 10,000 Movies & TV Series — Kaggle](https://www.kaggle.com/datasets/abbas829/imdb-top-10000-movies-and-tv-series-dataset)
 - **Licencia del dataset:** CC BY-SA 4.0 (reutilización permitida con atribución; ver la ficha de Kaggle).
-- **Tamaño aproximado:** ~10.000 títulos mejor valorados, con géneros anidados, años y más de 3 millones de votos.
+- **Tamaño aproximado:** ~10.000 títulos más votados/populares, con géneros anidados, años y más de 3 millones de votos.
 
 > **Los datos no se incluyen en este repositorio.** La carpeta `data/` está ignorada por git para mantener el repo ligero y reproducible; los datos se obtienen del enlace original. Sigue los pasos de [Instalación y reproducción](#instalación-y-reproducción) para descargarlos.
 
@@ -104,18 +104,18 @@ en local y se enlazará la demo pública en Hugging Face Spaces.
 - **Datos y modelado:** pandas, scikit-learn
 - **Interpretabilidad:** SHAP
 - **Aplicación:** Gradio, Hugging Face Spaces
-- **Mejora futura (NLP):** sentence-transformers (Hugging Face) para recomendación por similitud semántica de sinopsis
+- **Mejora futura (NLP):** sentence-transformers (Hugging Face) para recomendación por similitud semántica de sinopsis (posible ampliación del dataset actual, ya que este no contiene las sinopsis)
 - **Control de versiones:** Git / GitHub
 
 ## Hoja de ruta
 
-- [ ] **Fase 0 — Definir y preparar:** repositorio, README y descarga del dataset _(en curso)_
-- [ ] **Fase 1 — EDA y limpieza:** cargar, entender variables, desanidar géneros, elegir features
+- [x] **Fase 0 — Definir y preparar:** repositorio, README y descarga del dataset
+- [ ] **Fase 1 — EDA y limpieza:** cargar, entender variables, desanidar géneros, elegir features _(en curso)_
 - [ ] **Fase 2 — Módulo A (nota):** baseline → modelo que lo supere → evaluación → interpretabilidad → títulos infra/sobrevalorados
 - [ ] **Fase 3 — Módulo B (recomendador):** similitud sobre las features para devolver los N títulos más parecidos
 - [ ] **Fase 4 — App y despliegue:** app única en Gradio sobre Hugging Face Spaces
 - [ ] **Fase 5 — Documentación y publicación:** README final, capturas y difusión
-- [ ] **Mejora (NLP):** recomendador basado en contenido con embeddings de sinopsis
+- [ ] **Mejora (NLP):** recomendador basado en contenido con embeddings de sinopsis (posible ampliación del dataset actual, ya que este no contiene las sinopsis)
 
 ## Licencia
 
